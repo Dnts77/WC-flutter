@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:wc_2026_mobile/routing/router.dart';
 import 'package:wc_2026_mobile/ui/core/theme/app_theme.dart';
 
 void main() {
@@ -8,16 +9,15 @@ void main() {
 class const MainApp({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: AppTheme.light,
-      home: Scaffold(
-        body: Center(
-          child: FilledButton(
-            onPressed: (){},
-            child: Text('CTA X'),
-          )
-        )
-      ),
+      debugShowCheckedModeBanner: false,
+      builder: (context, child) {
+        return MaterialUiCompatibilityBridge(
+          child: child!,
+        );
+      },
+      routerConfig: router(),
     );
   }
 }
