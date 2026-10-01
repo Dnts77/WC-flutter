@@ -1,9 +1,15 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:validatorless/validatorless.dart';
 import 'package:wc_2026_mobile/ui/core/share/labeled_field.dart';
 import 'package:wc_2026_mobile/ui/core/theme/theme.dart';
 
-class LoginForm extends StatelessWidget {
-  const new({super.key});
+class const LoginForm({
+  super.key, 
+  required final TextEditingController emailController, 
+  required final TextEditingController passwordController,
+  final VoidCallback? onSubmit,
+  }) extends StatelessWidget {
+  
 
   @override
   Widget build(BuildContext context) {
@@ -39,20 +45,24 @@ class LoginForm extends StatelessWidget {
              height: 25,
           ),
           LabeledField(
+            controller: emailController,
             label: 'E-MAIL',
             hint: 'voce@exemplo.com',
             keyboardType: .emailAddress,
             textInputAction: .next,
             required: true,
+            validator: Validatorless.required("E-mail obrigatório")
           ),
           const SizedBox(
              height: 17,
           ),
           LabeledField.password(
+            controller: passwordController,
             label: 'SENHA',
             hint: '******',
             required: true,
             textInputAction: .done,
+            validator: Validatorless.required("Senha obrigatória"),
           ),
           TextButton(
             style: TextButton.styleFrom(
@@ -69,7 +79,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: FilledButton(
-              onPressed: (){},
+              onPressed: onSubmit,
               style: AppTheme.darkButton,
               child: Text("ENTRAR NO ÁLBUM  →"),
             ),
