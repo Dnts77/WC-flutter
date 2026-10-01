@@ -1,10 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:wc_2026_mobile/routing/routes.dart';
+import 'package:wc_2026_mobile/ui/auth/login/login_screen.dart';
 import 'package:wc_2026_mobile/ui/splash/splash_screen.dart';
 import 'package:wc_2026_mobile/ui/welcome/welcome_screen.dart';
 
 GoRouter router() => GoRouter(
-  initialLocation: Routes.splash,
+  initialLocation: Routes.login,
   routes: [
     GoRoute(
       path: Routes.splash,  
@@ -16,6 +17,12 @@ GoRouter router() => GoRouter(
       path: Routes.welcome,  
       builder: (_, _) {
         return WelcomeScreen();
+      },
+    ),
+    GoRoute(
+      path: Routes.login,  
+      builder: (_, _) {
+        return LoginScreen();
       },
     )
   ]
