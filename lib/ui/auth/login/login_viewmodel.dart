@@ -7,7 +7,7 @@ import 'package:wc_2026_mobile/domain/models/auth_session.dart';
 
 class LoginViewModel({required final AuthRepository _authRepository}) extends ChangeNotifier{
 
-  final _log = AppLoger("LoginViewModel");
+  final _log = AppLogger("LoginViewModel");
   late final login = Command1<void, (String, String)>(_login);
   String name = '';
 

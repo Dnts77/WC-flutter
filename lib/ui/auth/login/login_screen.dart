@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:wc_2026_mobile/core/result.dart';
+import 'package:wc_2026_mobile/routing/routes.dart';
 import 'package:wc_2026_mobile/ui/auth/login/login_viewmodel.dart';
 import 'package:wc_2026_mobile/ui/auth/login/widgets/emblem.dart';
 import 'package:wc_2026_mobile/ui/auth/login/widgets/header.dart';
@@ -113,7 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 TextButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    context.push(Routes.authRegister);
+                  },
                   style: TextButton.styleFrom(
                     foregroundColor: AppColors.ink,
                     textStyle: AppTextStyle.bodyBold
