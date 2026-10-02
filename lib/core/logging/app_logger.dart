@@ -1,7 +1,7 @@
 import 'package:logging/logging.dart';
 import 'package:wc_2026_mobile/core/logging/log_output.dart';
 
-class AppLoger(String name){
+class AppLogger(String name){
   final Logger _logger = Logger(name);
 
   void debug(String message) => _logger.fine(message);
